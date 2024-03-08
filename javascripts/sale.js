@@ -5,7 +5,10 @@ let purchases = [];
 function add() {
     const price = parseInt(priceElement.value);
     const number = parseInt(numberElement.value);
+    const option = priceElement.options[priceElement.selectedIndex];
+    const text = option.innerText;
     let purchase = {
+        text: text,
         price: price,
         number: number,
     };
@@ -25,7 +28,7 @@ function add() {
 function display() {
     let string = "";
     for (let i = 0; i < purchases.length; i++) {
-        string += `Precio: ${purchases[i].price} Cantidad: ${purchases[i].number}\n`;
+        string += `${purchases[i].text} Cantidad: ${purchases[i].number}\n`;
     }
     return string;
 }
